@@ -1,39 +1,35 @@
-import React, {Component} from "react";
+import React from "react";
+import './App.css';
 import Ideas from "../Ideas/Ideas";
 import Form from "../Form/Form";
-import './App.css'
 
-class App extends Component {
+class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      ideas: [
-        
-      ],
-      isLoading: true
+      ideas: []
     }
   }
 
-  addIdea = (newIdea) => {
-    this.setState({ideas: [...this.state.ideas, newIdea]})
+  addIdea = (freshIdea) => {
+    this.setState({ideas: [...this.state.ideas, freshIdea]})
   }
 
   deleteIdea = (id) => {
-    console.log(id)
-    const ideasToKeep = this.state.ideas.filter(idea => idea.id !== id)
-    this.setState( { ideas: ideasToKeep })
+    const filteredIdeas = this.state.ideas.filter(idea => idea.id !== id)
+    this.setState({ideas: filteredIdeas})
   }
 
-  render(){
+  render() {
     return (
-      <main className='App'>
-        <h1>Ideabox</h1>
+      <main className="App">
+        <h2>Idea Box</h2>
         <Form addIdea={this.addIdea} />
-          {!this.state.ideas.length && <h2>No Ideas Yet! Let's add some!</h2> }
+        {!this.state.ideas.length && <h2>No ideas yet! let's add some</h2>}
         <Ideas ideas={this.state.ideas} deleteIdea={this.deleteIdea}/>
       </main>
     )
   }
 }
 
-export default App;
+export default App
