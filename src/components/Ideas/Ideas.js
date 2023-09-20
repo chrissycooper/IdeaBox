@@ -7,7 +7,9 @@ const Ideas = () => {
   return (
     <>
       <h2> Here are my Ideas </h2>
-      <Card />
+      <div className="ideas-container">
+        <Card />
+      </div>
     </>
   )
 }
