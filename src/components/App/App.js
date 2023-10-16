@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Ideas from "../Ideas/Ideas";
+import Form from "../Form/Form";
 
 //sample data
 // {id: 1, title: "Bike", desc: "I want to ride my bicycle, I want to ride my bike."},
@@ -21,6 +22,7 @@ const App = () => {
     return (
       <div className="app-container">
         <h1>I have an Idea 💡</h1>
+        <Form />
        { ideas[0] ? 
         <Ideas ideas={ideas} deleteIdea={deleteIdea}/>
         :
